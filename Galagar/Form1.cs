@@ -43,31 +43,46 @@ namespace Galagar
 
         private void edit_button_Click(object sender, EventArgs e)
         {
-            using (SqlConnection conn = new SqlConnection(connectionString))
+            try
             {
-                conn.Open();
-                SqlCommand command = new SqlCommand("UPDATE Students SET FirstName = @FirstName, LastName = @LastName, Age = @Age , Course = @Course;", conn);
-                command.Parameters.AddWithValue("@FirstName", firstName_textBox.Text);
-                command.Parameters.AddWithValue("@LastName", lastName_textBox.Text);
-                command.Parameters.AddWithValue("@Age", Convert.ToInt32(age_textBox.Text));
-                command.Parameters.AddWithValue("@Course", course_textBox.Text);
-                command.ExecuteNonQuery();
-                MessageBox.Show("Student Edited");
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+                    SqlCommand command = new SqlCommand("UPDATE Students SET FirstName = @FirstName, LastName = @LastName, Age = @Age , Course = @Course WHERE StudentID = @StudentID", conn);
+                    command.Parameters.AddWithValue("@FirstName", firstName_textBox.Text);
+                    command.Parameters.AddWithValue("@LastName", lastName_textBox.Text);
+                    command.Parameters.AddWithValue("@Age", Convert.ToInt32(age_textBox.Text));
+                    command.Parameters.AddWithValue("@Course", course_textBox.Text);
+                    command.Parameters.AddWithValue("@StudentID", student_id.Text);
+                    command.ExecuteNonQuery();
+                    MessageBox.Show("Student Edited");
+                }
+            }catch(Exception)
+            {
+                MessageBox.Show("Student does not exist");
             }
+
+            
 
         }
 
         private void delete_button_Click(object sender, EventArgs e)
         {
-            using (SqlConnection conn = new SqlConnection(connectionString))
+            try
             {
-                conn.Open();
-                SqlCommand command = new SqlCommand("DELETE FROM Students WHERE FirstName = @FirstName AND LastName = @LastName", conn);
-                command.Parameters.AddWithValue("@FirstName", firstName_textBox.Text);
-                command.Parameters.AddWithValue("@LastName", lastName_textBox.Text);
-                command.ExecuteNonQuery();
-                MessageBox.Show("Student Deleted");
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+                    SqlCommand command = new SqlCommand("DELETE FROM Students  WHERE StudentID = @StudentID", conn);
+                    command.Parameters.AddWithValue("@StudentID", student_id.Text);
+                    command.ExecuteNonQuery();
+                    MessageBox.Show("Student Deleted");
+                }
+            }catch(Exception)
+            {
+                MessageBox.Show("Student does not exist");
             }
+           
             
         }
 
@@ -89,6 +104,7 @@ namespace Galagar
             lastName_textBox.Text = string.Empty;
             age_textBox.Text = string.Empty ;
             course_textBox.Text = string.Empty ;
+            student_id.Text = string.Empty;
         }
     }
 }

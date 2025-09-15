@@ -39,21 +39,23 @@ namespace Galagar
             this.course_textBox = new System.Windows.Forms.TextBox();
             this.course_label = new System.Windows.Forms.Label();
             this.sql_dataView = new System.Windows.Forms.DataGridView();
-            this.studentDBDataSet = new Galagar.StudentDBDataSet();
-            this.studentsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.studentsTableAdapter = new Galagar.StudentDBDataSetTableAdapters.StudentsTableAdapter();
             this.studentIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.firstNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lastNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ageDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.courseDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.studentsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.studentDBDataSet = new Galagar.StudentDBDataSet();
+            this.studentsTableAdapter = new Galagar.StudentDBDataSetTableAdapters.StudentsTableAdapter();
             this.save_button = new System.Windows.Forms.Button();
             this.edit_button = new System.Windows.Forms.Button();
             this.delete_button = new System.Windows.Forms.Button();
             this.load_button = new System.Windows.Forms.Button();
+            this.student_id = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.sql_dataView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.studentDBDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.studentsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.studentDBDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // firstName_label
@@ -136,20 +138,6 @@ namespace Galagar
             this.sql_dataView.Size = new System.Drawing.Size(545, 150);
             this.sql_dataView.TabIndex = 8;
             // 
-            // studentDBDataSet
-            // 
-            this.studentDBDataSet.DataSetName = "StudentDBDataSet";
-            this.studentDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // studentsBindingSource
-            // 
-            this.studentsBindingSource.DataMember = "Students";
-            this.studentsBindingSource.DataSource = this.studentDBDataSet;
-            // 
-            // studentsTableAdapter
-            // 
-            this.studentsTableAdapter.ClearBeforeFill = true;
-            // 
             // studentIDDataGridViewTextBoxColumn
             // 
             this.studentIDDataGridViewTextBoxColumn.DataPropertyName = "StudentID";
@@ -180,6 +168,20 @@ namespace Galagar
             this.courseDataGridViewTextBoxColumn.DataPropertyName = "Course";
             this.courseDataGridViewTextBoxColumn.HeaderText = "Course";
             this.courseDataGridViewTextBoxColumn.Name = "courseDataGridViewTextBoxColumn";
+            // 
+            // studentsBindingSource
+            // 
+            this.studentsBindingSource.DataMember = "Students";
+            this.studentsBindingSource.DataSource = this.studentDBDataSet;
+            // 
+            // studentDBDataSet
+            // 
+            this.studentDBDataSet.DataSetName = "StudentDBDataSet";
+            this.studentDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // studentsTableAdapter
+            // 
+            this.studentsTableAdapter.ClearBeforeFill = true;
             // 
             // save_button
             // 
@@ -221,11 +223,29 @@ namespace Galagar
             this.load_button.UseVisualStyleBackColor = true;
             this.load_button.Click += new System.EventHandler(this.load_button_Click);
             // 
+            // student_id
+            // 
+            this.student_id.Location = new System.Drawing.Point(311, 43);
+            this.student_id.Name = "student_id";
+            this.student_id.Size = new System.Drawing.Size(210, 20);
+            this.student_id.TabIndex = 14;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(232, 46);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(73, 13);
+            this.label1.TabIndex = 13;
+            this.label1.Text = "STUDENT ID";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.student_id);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.load_button);
             this.Controls.Add(this.delete_button);
             this.Controls.Add(this.edit_button);
@@ -243,8 +263,8 @@ namespace Galagar
             this.Text = "v";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.sql_dataView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.studentDBDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.studentsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.studentDBDataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -273,6 +293,8 @@ namespace Galagar
         private System.Windows.Forms.Button edit_button;
         private System.Windows.Forms.Button delete_button;
         private System.Windows.Forms.Button load_button;
+        private System.Windows.Forms.TextBox student_id;
+        private System.Windows.Forms.Label label1;
     }
 }
 
